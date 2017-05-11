@@ -1,7 +1,9 @@
 var size = {w: screen.width, h: screen.height};
+document.body.style.backgroundColor = "#333";
 sizeChange();
 window.onresize = sizeChange;
 window.onload = autoShift;
+
 
 function autoShift() {
 	let img = document.getElementsByTagName("img");
@@ -47,11 +49,11 @@ function sizeChange() {
 				);
 			}
 		} else {
+			document.body.style.backgroundColor = "#333";
 			viewPort.setAttribute(
 				"content",
 				"initial-scale=1"
 			);
-			document.body.style.backgroundColor = "#333";
 		}
 		window.onresize = sizeChange;
 	}
