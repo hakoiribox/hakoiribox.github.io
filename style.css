@@ -1,13 +1,17 @@
-
-body {
-	margin: 0;
+html {
 	width: 100%;
 	height: 100%;
-	margin: 0;
-	background-color: #333;
-	color: black;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: auto;
+	width: inherit;
+	height: inherit;
+	color: white;
 	font-family: "Noto Serif CJK JP Light", "源ノ明朝 JP Light", "Source Han Serif JP Light",
 				 "游明朝", "游明朝体", serif;
+	position: relative;
 }
 
 body a {
@@ -17,51 +21,57 @@ body a {
 
 article {
 	position: absolute;
-	display: block;
-	width: 768px;
+	width: 850px;
+	height: 600px;
 	right: 0;
 	left: 0;
 	top: 0;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	padding-top: 32px;
-	padding-left: 64px;
-	padding-right: 64px;
-	padding-bottom: 64px;
+	bottom: 0;
+	margin: auto;
 	background-color: white;
+	padding: 60px;
 }
 
 h1 {
-	text-align: center;
+	position: relative;
+	display: inline;
+	text-align: right;
 	font-family: "Noto Sans CJK JP Bold", "源ノ角ゴシック JP Bold", "Source Han Sans JP Bold",
 				 "游ゴシック", "游ゴシック体", sans-serif;
-	letter-spacing: 0.8em;
+	letter-spacing: 0.4em;
 	font-weight: bold;
-	margin-bottom: 48px;
+	left: 470px;
+	top: 40px;
+	margin-top: 1.25em;
+	font-size: 1.9em;
 }
 
+
 img {
-	position: relative;
-	width: 512px;
-	float: left;
+	position: absolute;
+	height: 600px;
 	border: solid 1px #bbb;
 	display: none;
 }
 
 ul {
+	position: absolute;
 	color: blue;
-	list-style: circle;
+	list-style: none;
 	display: inline-block;
-	margin-left: 32px;
-	margin-top: 32px;
+	margin-left: 50px;;
+	left: 480px;
+	top: 180px;
+	margin-right: 11em;
 }
 
 li {
+	border-left: solid 1px #000;
 	font-size: 24px;
 	margin-bottom: 32px;
 	width: auto;
 	color: black;
 	letter-spacing: 0.1em;
+	padding-left: 1em;
+	margin-left: 0;
 }
