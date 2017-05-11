@@ -1,6 +1,6 @@
 # hakoiribox.github.io
 
-## Authors
+## Author
 
 * [Nozaki Hakone](https://twitter.com/hakoiribox)
 
