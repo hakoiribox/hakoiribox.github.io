@@ -1,5 +1,9 @@
+var size = {w: screen.width, h: screen.height};
+document.body.style.backgroundColor = "#333";
+sizeChange();
+window.onresize = sizeChange;
 window.onload = autoShift;
-window.onresize = size();
+
 
 function autoShift() {
 	let img = document.getElementsByTagName("img");
@@ -18,47 +22,39 @@ function autoShift() {
 	localStorage.i = i;
 }
 
-function size() {
-	var resize = function(e, mobile, vertical) {
-		window.onresize = function(){};
-		document.body.style.backgroundColor = function() {
-			if (!mobile) {
-				return "#333";
-			} else if (mobile) {
-				return "#fff"; 
-			}
-		}();
-		if (
-			(mobile != (screen.width < 970))
-			|| (vertical != (screen.width < screen.height))
-		) {
-			let viewport = document.getElementsByName("viewport")[0];
-			viewport.setAttribute(
-				"content",
-				"initial-scale=1"
-			);
-			if (mobile && vertical) {
-				viewport.setAttribute(
+function sizeChange() {
+	if (
+		size.w != screen.width
+		|| size.h != screen.height
+	) {
+		window.onresize = null;
+		size.w = screen.width;
+		size.h = screen.height;
+		let viewPort = document.getElementsByName("viewport")[0];
+		viewPort.setAttribute(
+			"content",
+			"initial-scale=1"
+		);
+		if (size.w < 970) {
+			document.body.style.backgroundColor = "#fff";
+			if (screen.width < screen.height) {
+				viewPort.setAttribute(
 					"content",
 					"width=" + 970
 				);
-			} else if (mobile && !vertical) {
-				viewport.setAttribute(
+			} else {
+				viewPort.setAttribute(
 					"content",
 					"height=" + 720
 				);
 			}
-			console.log("mobile :" + mobile);
-			console.log("vertical :" + vertical);
-			mobile = (screen.width < 970);
-			vertical = (screen.width < screen.height);
+		} else {
+			document.body.style.backgroundColor = "#333";
+			viewPort.setAttribute(
+				"content",
+				"initial-scale=1"
+			);
 		}
-		window.onresize = function(e){
-			resize(e, (screen.width < 970), (screen.width < screen.height));
-		};;
+		window.onresize = sizeChange;
 	}
-	resize(null, (screen.width < 970), (screen.width < screen.height));
-	return function(e){
-		resize(e, (screen.width < 970), (screen.width < screen.height));
-	};
 }
