@@ -1,5 +1,4 @@
 var size = {w: screen.width, h: screen.height};
-document.body.style.backgroundColor = "#333";
 sizeChange();
 window.onresize = sizeChange;
 window.onload = autoShift;
@@ -23,6 +22,11 @@ function autoShift() {
 }
 
 function sizeChange() {
+	if (size.w < 970) {
+		document.body.style.backgroundColor = "#fff";
+	} else {
+		document.body.style.backgroundColor = "#333";
+	}
 	if (
 		size.w != screen.width
 		|| size.h != screen.height
