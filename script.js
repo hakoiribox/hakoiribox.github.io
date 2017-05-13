@@ -1,4 +1,5 @@
 var size = {w: screen.width, h: screen.height};
+anchorChange();
 sizeChange();
 window.onresize = sizeChange;
 window.onload = autoShift;
@@ -19,6 +20,15 @@ function autoShift() {
 	}();
 	img[i].style.display = "block";
 	localStorage.i = i;
+}
+
+function anchorChange() {
+	let a = document.getElementsByTagName("a");
+	if (970 <= size.w) {
+		for (let i = 0; i < a.length; i++) {		
+			a[i].setAttribute("target", "_blank");	
+		}
+	}
 }
 
 function sizeChange() {
